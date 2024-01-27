@@ -74,6 +74,8 @@ body {
   table-layout: fixed;
   border-spacing: 1rem;
   text-align: right;
+  
+
 }
 
 #result thead {
@@ -85,6 +87,10 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.85rem;
   color: #c2e9e0;
+}
+#result tbody tr:nth-child(even) {
+   background: linear-gradient(180deg, #307e6c, #2b996d);
+   padding: 10px;
 }
 
 .center {

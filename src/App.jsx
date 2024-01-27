@@ -6,7 +6,7 @@ const INPUT_VALUES = {
   initialInvestment: 1000,
   annualInvestment: 500,
   expectedReturn: 5,
-  duration: 10
+  duration: 12
 }
 
 
@@ -26,7 +26,9 @@ function App() {
   return (
     <>
       <UserInput changeFunc={handleInputChange} userInput={inputValue} />
-    { inputIsValid ? <Results input={inputValue} /> : <p className="center">Please enter a valid duration input</p>}
+      {inputIsValid
+        ? <Results input={inputValue} />
+        : <p className="center">Please enter a valid duration input</p>}
     </>
   )
 }
