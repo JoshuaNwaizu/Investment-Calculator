@@ -13,9 +13,9 @@ function App() {
   const [inputValue, setInputValue] = useState(INPUT_VALUES)
 
   function handleInputChange(inputIdentifier, newValue) {
-    setInputValue(prevInput => {
+    setInputValue((prevInput) => {
       return {
-        ...INPUT_VALUES,
+        ...prevInput,
         [inputIdentifier]: +newValue
       }
 

@@ -8,7 +8,6 @@ function Results({ input }) {
         calcResult[0].valueEndOfYear
         - calcResult[0].interest
         - calcResult[0].annualInvestment
-    console.log(calcResult)
     return (
         <table id="result">
             <thead>
@@ -28,7 +27,6 @@ function Results({ input }) {
                     - initialInvestments
 
                     const totalYearInvested = yearData.valueEndOfYear - totalInterest
-                    console.log(totalInterest)
                     return (
                         <tr key={yearData.year}>
                             <td> {yearData.year}</td>
