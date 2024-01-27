@@ -3,14 +3,16 @@ import { useState } from "react"
 import Results from "./Components/Results"
 
 const INPUT_VALUES = {
-  initialInvestment: 10000,
-  annualInvestment: 5000,
+  initialInvestment: 1000,
+  annualInvestment: 500,
   expectedReturn: 5,
   duration: 10
 }
 
+
 function App() {
   const [inputValue, setInputValue] = useState(INPUT_VALUES)
+  const inputIsValid = inputValue.duration >= 1
 
   function handleInputChange(inputIdentifier, newValue) {
     setInputValue((prevInput) => {
@@ -24,7 +26,7 @@ function App() {
   return (
     <>
       <UserInput changeFunc={handleInputChange} userInput={inputValue} />
-      <Results input={inputValue} />
+    { inputIsValid ? <Results input={inputValue} /> : <p className="center">Please enter a valid duration input</p>}
     </>
   )
 }

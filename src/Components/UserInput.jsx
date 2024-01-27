@@ -1,41 +1,35 @@
+import InputFields from "./InputFields"
 
+function UserInput({ changeFunc, userInput }) {
 
-function UserInput({changeFunc, userInput}) {
-  
     return (
         <section id="user-input" className="section">
             <div className="input-group">
-                <p>
-                    <label>Initial investment </label>
-                    <input type="number" required
-                        value={userInput.initialInvestment}
-                        onChange={(event) =>
-                            changeFunc('initialInvestment', event.target.value)} />
-                </p>
-                <p>
-                    <label>Annual investment </label>
-                    <input type="number" required
-                        value={userInput.annualInvestment}
-                        onChange={(event) =>
-                            changeFunc('annualInvestment', event.target.value)} />
-                </p>
+
+                <InputFields title='Initial investment'
+                    inputVal={userInput.initialInvestment}
+                    handleOnChange={(event) =>
+                        changeFunc('initialInvestment', event.target.value)} />
+
+                <InputFields title='Annual investment'
+                    inputVal={userInput.annualInvestment}
+                    handleOnChange={(event) =>
+                        changeFunc('annualInvestment', event.target.value)} />
+
             </div>
 
             <div className="input-group">
-                <p>
-                    <label>Expected Return </label>
-                    <input type="number" required
-                        value={userInput.expectedReturn}
-                        onChange={(event) =>
-                            changeFunc('expectedReturn', event.target.value)} />
-                </p>
-                <p>
-                    <label>Duration </label>
-                    <input type="number" required
-                        value={userInput.duration}
-                        onChange={(event) =>
-                            changeFunc('duration', event.target.value)} />
-                </p>
+                <InputFields title='Expected Return'
+                    inputVal={userInput.expectedReturn}
+                    handleOnChange={(event) =>
+                        changeFunc('expectedReturn', event.target.value)} />
+
+                <InputFields title='Duration'
+                    inputVal={userInput.duration}
+                    handleOnChange={(event) =>
+                        changeFunc('duration', event.target.value)} />
+
+
 
             </div>
 
