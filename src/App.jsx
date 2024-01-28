@@ -3,22 +3,24 @@ import { useState } from "react"
 import Results from "./Components/Results"
 
 const INPUT_VALUES = {
-  initialInvestment: 1000,
-  annualInvestment: 500,
-  expectedReturn: 5,
-  duration: 12
+  initialInvestment: 0,
+  annualInvestment: 0,
+  expectedReturn: 0,
+  duration: 0
 }
 
 
 function App() {
   const [inputValue, setInputValue] = useState(INPUT_VALUES)
+  
   const inputIsValid = inputValue.duration >= 1
+  const initVal = inputValue.initialInvestment >= 1 || inputValue === ''
 
   function handleInputChange(inputIdentifier, newValue) {
     setInputValue((prevInput) => {
       return {
         ...prevInput,
-        [inputIdentifier]: +newValue
+        [inputIdentifier]: newValue === 0 || newValue ==='' ? '' : +newValue 
       }
 
     })
@@ -26,9 +28,9 @@ function App() {
   return (
     <>
       <UserInput changeFunc={handleInputChange} userInput={inputValue} />
-      {inputIsValid
+      {initVal && inputIsValid
         ? <Results input={inputValue} />
-        : <p className="center">Please enter a valid duration input</p>}
+        : <p className="center">Please enter a valid input</p>}
     </>
   )
 }
